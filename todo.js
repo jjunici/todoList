@@ -4,7 +4,7 @@ const toDoForm = document.querySelector(".js-toDoForm"),
 
 const TODOS_LS = 'toDos';
 
-
+const DELBTNCLASS = 'delButton';
 let toDos = [];
 
 
@@ -28,8 +28,10 @@ function paintToDo(text){
     const delBtn = document.createElement("button");
     const span = document.createElement("span");
     const newId = toDos.length+1;
-    delBtn.innerText =  "❌";
+    span.classList.add("contentText");
+    delBtn.innerText = "Delete"
     delBtn.addEventListener("click",deleteToDo);
+    delBtn.classList.add(DELBTNCLASS);
     span.innerText = text;
     li.appendChild(delBtn);
     li.appendChild(span);
