@@ -3,7 +3,8 @@ const form  = document.querySelector(".js-form"),
     greeting = document.querySelector(".js-greetings");
 
 const USER_LS = "currentUser",
-    SHOWING_CN = "showing"
+    SHOWING_NAME = "showingname",
+    SHOWING_GREETING = "showinggreeting";
 function saveName(text){
     localStorage.setItem(USER_LS,text);
 }
@@ -14,12 +15,12 @@ function handleSubmit(event){
     saveName(currentValue);
 }
 function askForName(){
-    form.classList.add(SHOWING_CN);//동적으로 css 에 작성한 showing 이란 클래스를 추가 한다. 
+    form.classList.add(SHOWING_NAME);//동적으로 css 에 작성한 showing 이란 클래스를 추가 한다. 
     form.addEventListener("submit",handleSubmit);
 }
 function paintGreeting(text){
-    form.classList.remove(SHOWING_CN);//동적으로 css 에 작성한 showing 이란 클래스를 제거 한다. 
-    greeting.classList.add(SHOWING_CN);
+    form.classList.remove(SHOWING_NAME);//동적으로 css 에 작성한 showing 이란 클래스를 제거 한다. 
+    greeting.classList.add(SHOWING_GREETING);
     greeting.innerText = `Hello ${text}`
 }
 function loadName() {
